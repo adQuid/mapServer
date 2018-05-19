@@ -1,0 +1,4 @@
+GET     /                           controllers.HomeController.index
+
+GET     /v1/map                      v1.map.MapController.getMap
+GET     /v1/slowmap                      v1.map.MapController.getMapSlowly
