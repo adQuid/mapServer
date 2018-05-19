@@ -9,7 +9,7 @@ public class Filters implements HttpFilters {
     @Inject
     CORSFilter corsFilter;
 
-    public EssentialFilter[] filters() {
+    public EssentialFilter[] getFilters() {
         return new EssentialFilter[] { corsFilter };
     }
 }
