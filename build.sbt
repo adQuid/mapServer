@@ -25,6 +25,7 @@ libraryDependencies += "io.dropwizard.metrics" % "metrics-core" % "3.2.1"
 libraryDependencies += "com.palominolabs.http" % "url-builder" % "1.1.0"
 libraryDependencies += "net.jodah" % "failsafe" % "1.0.3"
 
+libraryDependencies += filters
 
 PlayKeys.externalizeResources := false
 
