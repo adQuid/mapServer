@@ -9,7 +9,8 @@ import play.mvc.*;
 public class HomeController extends Controller {
 
     public Result index() {
-        return ok(views.html.index.render());
+        retrun ok("Hello World!");
+    	//return ok(views.html.index.render());
     }
 
 }
