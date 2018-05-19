@@ -6,13 +6,6 @@ plugins {
 
 def playVersion = "2.6.13"
 def scalaVersion = System.getProperty("scala.binary.version", /* default = */ "2.12")
-def gatlingVersion = getGlatlingVersion(scalaVersion)
-
-// Gatling 2.3.0 works for Scala 2.12
-// Gatling 2.2.5 works for Scala 2.11
-String getGlatlingVersion(String scalaVer) {
-    if (scalaVer == "2.12") "2.3.0" else "2.2.5"
-}
 
 model {
     components {
@@ -30,16 +23,8 @@ model {
 }
 
 project.sourceSets {
-    gatling {
-        scala.srcDirs = ["gatling"]
-    }
 }
 
-gatling {
-    sourceRoot = "gatling"
-    simulationsDir = "gatling"
-    toolVersion = gatlingVersion
-}
 
 dependencies {
     play "com.typesafe.play:play-guice_$scalaVersion:$playVersion"
