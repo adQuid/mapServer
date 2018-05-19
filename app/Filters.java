@@ -1,14 +1,23 @@
-import play.mvc.EssentialFilter;
+import play.api.http.EnabledFilters;
 import play.filters.cors.CORSFilter;
-import play.http.HttpFilters;
-import javax.inject.Inject;
+import play.http.DefaultHttpFilters;
+import play.mvc.EssentialFilter;
 
-public class Filters implements HttpFilters {
+import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Filters extends DefaultHttpFilters {
 
     @Inject
-    CORSFilter corsFilter;
+    public Filters(EnabledFilters enabledFilters, CORSFilter corsFilter) {
+        super(combine(enabledFilters.asJava().getFilters(), corsFilter.asJava()));
+    }
 
-    public EssentialFilter[] filters() {
-        return new EssentialFilter[] { corsFilter.asJava() };
+    private static List<EssentialFilter> combine(List<EssentialFilter> filters, EssentialFilter toAppend) {
+        List<EssentialFilter> combinedFilters = new ArrayList<>(filters);
+        combinedFilters.add(toAppend);
+        return combinedFilters;
     }
 }
