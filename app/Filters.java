@@ -12,7 +12,7 @@ public class Filters extends DefaultHttpFilters {
 
     @Inject
     public Filters(EnabledFilters enabledFilters, CORSFilter corsFilter) {
-        super(combine(enabledFilters.asJava().getFilters(), corsFilter.asJava()));
+        super(combine(enabledFilters.asJava().getFilters(), corsFilter));
     }
 
     private static List<EssentialFilter> combine(List<EssentialFilter> filters, EssentialFilter toAppend) {
