@@ -25,7 +25,6 @@ public class Module extends AbstractModule {
     @Override
     public void configure() {
         bind(MetricRegistry.class).toProvider(MetricRegistryProvider.class).asEagerSingleton();
-        bind(PostRepository.class).to(JPAPostRepository.class).asEagerSingleton();
     }
 }
 
