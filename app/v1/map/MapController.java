@@ -12,7 +12,7 @@ public class MapController extends Controller{
 				grid[row][col] = (int)(Math.random() * 3);
 			}
 		}
-		return ok(jsonifyGrid(grid));
+		return ok(jsonifyGrid(grid)).withHeaders(CACHE_CONTROL -> "max-age=3600");
 	}
 	
 	public Result getMapSlowly(){
