@@ -32,7 +32,9 @@ public class MapController extends Controller{
 				retval += grid[row][col];
 				retval += ",";
 			}
-			retval=retval.substring(0, retval.length()-1)+";";
+			if(row < grid.length-1){
+				retval=retval.substring(0, retval.length()-1)+";";
+			}
 		}
 		return retval;
 	}
