@@ -12,7 +12,7 @@ public class MapController extends Controller{
 				grid[row][col] = (int)(Math.random() * 3);
 			}
 		}
-		return Ok(jsonifyGrid(grid));
+		return ok(jsonifyGrid(grid));
 	}
 	
 	public Result getMapSlowly(){
