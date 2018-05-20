@@ -6,7 +6,7 @@ import utils.*;
 public class MapController extends Controller{
 
 	public Result getMap(){
-		int[][] grid = new int [10][10];
+		int[][] grid = new int [11][11];
 		
 		for(int row=0; row < grid.length; row++){
 			for(int col=0; col < grid[0].length; col++){
