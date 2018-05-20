@@ -1,6 +1,7 @@
 package v1.map;
 
 import play.mvc.*;
+import utils.*;
 
 public class MapController extends Controller{
 
@@ -12,7 +13,7 @@ public class MapController extends Controller{
 				grid[row][col] = (int)(Math.random() * 3);
 			}
 		}
-		return ok(jsonifyGrid(grid)).withHeader("Access-Control-Allow-Origin","*");
+		return RequestUtils.prepResponse(ok(jsonifyGrid(grid)));
 	}
 	
 	public Result getMapSlowly(){
@@ -20,7 +21,7 @@ public class MapController extends Controller{
 		for(int i = 0; i < 100000000; i++){
 			retval += i;
 		}
-		return ok("result is "+retval);
+		return RequestUtils.prepResponse(ok("result is "+retval));
 	}
 	
 	private String jsonifyGrid(int[][] grid){
