@@ -12,7 +12,7 @@ public class MapController extends Controller{
 				grid[row][col] = (int)(Math.random() * 3);
 			}
 		}
-		return ok(jsonifyGrid(grid)).withHeaders("Access-Control-Allow-Origin" -> "*");
+		return ok(jsonifyGrid(grid)).withHeader("Access-Control-Allow-Origin","*");
 	}
 	
 	public Result getMapSlowly(){
