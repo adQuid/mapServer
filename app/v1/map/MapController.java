@@ -12,6 +12,7 @@ public class MapController extends Controller{
 		//testing DB conns
 		try{
 			Connection con = MapDatabase.getConnection();
+			con.close();
 		}catch(SQLException e){
 			System.err.println("The SQL was bad somehow, but at least it worked kinda!");
 		}
