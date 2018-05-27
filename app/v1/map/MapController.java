@@ -3,13 +3,18 @@ package v1.map;
 import play.mvc.*;
 import utils.*;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class MapController extends Controller{
 
 	public Result getMap(){
 		
 		//testing DB conns
-		Connection con = MapDatabase.getConnection();
+		try{
+			Connection con = MapDatabase.getConnection();
+		}catch(SQLException e){
+			System.err.println("The SQL was bad somehow, but at least it worked kinda!");
+		}
 		
 		int[][] grid = new int [11][11];
 		
