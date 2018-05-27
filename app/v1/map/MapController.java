@@ -6,6 +6,10 @@ import utils.*;
 public class MapController extends Controller{
 
 	public Result getMap(){
+		
+		//testing DB conns
+		Connection con = MapDatabase.getConnection();
+		
 		int[][] grid = new int [11][11];
 		
 		for(int row=0; row < grid.length; row++){
