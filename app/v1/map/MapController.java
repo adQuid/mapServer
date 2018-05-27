@@ -2,6 +2,7 @@ package v1.map;
 
 import play.mvc.*;
 import utils.*;
+import java.sql.Connection;
 
 public class MapController extends Controller{
 
